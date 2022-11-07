@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.medic.controllers.AutoTestController">
+   <children>
+      <Pane prefHeight="35.0" prefWidth="360.0" style="-fx-background-color: #41348a;">
+         <children>
+            <ImageView fx:id="imageClose" fitHeight="35.0" fitWidth="34.0" layoutX="325.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Projects/medic/src/main/resources/com/project/medic/images/close/close.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imageCollapse" fitHeight="35.0" fitWidth="34.0" layoutX="290.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Projects/medic/src/main/resources/com/project/medic/images/collapse/collapse.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Circle fill="DODGERBLUE" layoutX="59.0" layoutY="86.0" radius="25.0" stroke="WHITE" strokeType="INSIDE" />
+      <Label alignment="CENTER" layoutX="95.0" layoutY="61.0" prefHeight="25.0" prefWidth="233.0" text="Анастасия Немтырева">
+         <font>
+            <Font name="Franklin Gothic Medium" size="22.0" />
+         </font>
+      </Label>
+      <Circle fill="GREEN" layoutX="180.0" layoutY="580.0" radius="5.0" stroke="GREEN" strokeType="INSIDE" />
+      <Circle fill="GREEN" layoutX="210.0" layoutY="580.0" radius="5.0" stroke="GREEN" strokeType="INSIDE" />
+      <Circle fill="GREEN" layoutX="150.0" layoutY="580.0" radius="5.0" stroke="GREEN" strokeType="INSIDE" />
+      <Label alignment="CENTER" layoutX="123.0" layoutY="548.0" prefHeight="20.0" prefWidth="115.0" text="Готов к работе">
+         <font>
+            <Font name="Franklin Gothic Medium" size="17.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="144.0" layoutY="86.0" prefHeight="20.0" prefWidth="122.0" text="Приложение ПК">
+         <font>
+            <Font name="Franklin Gothic Medium" size="17.0" />
+         </font>
+      </Label>
+      <Circle fill="BLUE" layoutX="128.0" layoutY="96.0" radius="5.0" stroke="BLUE" strokeType="INSIDE" />
+      <Circle fill="#41348a" layoutX="185.0" layoutY="243.0" radius="100.0" stroke="#41348a" strokeType="INSIDE" />
+      <Circle fill="#5d4db5" layoutX="185.0" layoutY="243.0" radius="86.0" stroke="#5d4db5" strokeType="INSIDE" />
+      <ImageView fitHeight="96.0" fitWidth="96.0" layoutX="137.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/start.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="21.0" layoutY="380.0" prefHeight="126.0" prefWidth="328.0" text="Программа будет использовать ваш компьютер для выполнения задачи. Запускать задачу можно как и с ПК, так и через Telegram. При запуске, через Telegram, программа должна быть запущена на вашем ПК." textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Franklin Gothic Medium" size="17.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imageCollapse1" fitHeight="35.0" fitWidth="34.0" layoutX="315.0" layoutY="558.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/telegram.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>
