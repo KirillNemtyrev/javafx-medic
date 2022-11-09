@@ -16,6 +16,9 @@ module com.project.medic {
     requires java.desktop;
 
     requires com.google.gson;
+    requires org.seleniumhq.selenium.api;
+    requires org.seleniumhq.selenium.support;
+    requires org.seleniumhq.selenium.chrome_driver;
 
     opens com.project.medic.entity to com.google.gson;
     opens com.project.medic.dto to com.google.gson;

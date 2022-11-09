@@ -30,14 +30,14 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane fx:id="paneInfo" layoutX="150.0" layoutY="531.0" prefHeight="34.0" prefWidth="300.0" style="-fx-background-color: #41348a; -fx-background-radius: 10px;">
+      <Pane fx:id="paneInfo" layoutX="118.0" layoutY="533.0" prefHeight="34.0" prefWidth="364.0" style="-fx-background-color: #41348a; -fx-background-radius: 10px;" visible="false">
          <children>
             <ImageView fx:id="imageInfo" fitHeight="32.0" fitWidth="32.0" layoutX="6.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/error.png" />
                </image>
             </ImageView>
-            <Label fx:id="labelInfo" alignment="CENTER" layoutX="41.0" layoutY="4.0" prefHeight="25.0" prefWidth="244.0" text="Неверный логин или пароль!" textFill="WHITE">
+            <Label fx:id="labelInfo" alignment="CENTER" layoutX="41.0" layoutY="4.0" prefHeight="25.0" prefWidth="305.0" text="Неверный логин или пароль!" textFill="WHITE">
                <font>
                   <Font name="Franklin Gothic Medium" size="17.0" />
                </font>
@@ -67,12 +67,12 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Label layoutX="29.0" layoutY="211.0" prefHeight="49.0" prefWidth="315.0" text="После указания пути до файла, нажмите кнопку 'Проверить'" textAlignment="CENTER" textFill="#d3d2d2" wrapText="true">
+            <Label fx:id="labelPathInfo" disable="true" layoutX="29.0" layoutY="211.0" prefHeight="49.0" prefWidth="315.0" text="После указания пути до файла, нажмите кнопку 'Проверить'" textAlignment="CENTER" textFill="#d3d2d2" wrapText="true">
                <font>
                   <Font name="Franklin Gothic Medium" size="17.0" />
                </font>
             </Label>
-            <Button fx:id="buttonCheck" layoutX="110.0" layoutY="274.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="153.0" style="-fx-background-color: white;" text="Проверить">
+            <Button fx:id="buttonCheck" disable="true" layoutX="110.0" layoutY="274.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="153.0" style="-fx-background-color: white;" text="Проверить">
                <font>
                   <Font name="Franklin Gothic Medium" size="20.0" />
                </font>
@@ -80,11 +80,46 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Label alignment="CENTER" layoutX="25.0" layoutY="166.0" prefHeight="18.0" prefWidth="315.0" text="Путь не указан" textAlignment="CENTER" textFill="#d3d2d2" wrapText="true">
+            <Label fx:id="labelPath" alignment="TOP_CENTER" layoutX="25.0" layoutY="157.0" prefHeight="32.0" prefWidth="315.0" text="Путь не указан" textAlignment="CENTER" textFill="#d3d2d2" wrapText="true">
                <font>
-                  <Font name="Franklin Gothic Medium" size="14.0" />
+                  <Font name="Franklin Gothic Medium" size="11.0" />
                </font>
             </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="paneSuccessful" layoutX="148.0" layoutY="194.0" prefHeight="332.0" prefWidth="324.0" style="-fx-background-color: #41348a; -fx-background-radius: 25px;" visible="false">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Label layoutX="71.0" layoutY="14.0" text="Всё работает!" textFill="WHITE">
+               <font>
+                  <Font name="Franklin Gothic Medium" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="39.0" layoutY="50.0" prefHeight="22.0" prefWidth="246.0" text="Тест драйвера был успешным!" textAlignment="CENTER" textFill="#c9c9c9" wrapText="true">
+               <font>
+                  <Font name="Franklin Gothic Medium" size="18.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="96.0" fitWidth="96.0" layoutX="114.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/register_2.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="28.0" layoutY="189.0" prefHeight="79.0" prefWidth="268.0" text="Теперь вы можете начать работу с тестами! Но перед этим нужно авторизоваться." textAlignment="CENTER" textFill="#c9c9c9" wrapText="true">
+               <font>
+                  <Font name="Franklin Gothic Medium" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="buttonAuth" layoutX="20.0" layoutY="276.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="284.0" style="-fx-background-color: white;" text="Авторизоваться">
+               <font>
+                  <Font name="Franklin Gothic Medium" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
          </children>
       </Pane>
    </children>
