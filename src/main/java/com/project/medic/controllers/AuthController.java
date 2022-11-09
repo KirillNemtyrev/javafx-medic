@@ -1,7 +1,9 @@
 package com.project.medic.controllers;
 
+import com.google.gson.Gson;
 import com.project.medic.Run;
 import com.project.medic.config.Config;
+import com.project.medic.dto.SignInDTO;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -14,8 +16,15 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -104,11 +113,24 @@ public class AuthController extends Application {
         actionWithCollapseImg();
 
         // For notify
-        String path = Run.class.getResource("images/info.png").toURI().toString();
+        String path = Objects.requireNonNull(Run.class.getResource("images/info.png")).toURI().toString();
         imageInformation = new Image(path);
 
-        path = Run.class.getResource("images/error.png").toURI().toString();
+        path = Objects.requireNonNull(Run.class.getResource("images/error.png")).toURI().toString();
         imageError = new Image(path);
+
+        // Keyboard
+        keyboardOnTextFieldEmail();
+        keyboardOnPasswordField();
+
+        // Button auth
+        mouseOnButtonAuth();
+
+        // Label register
+        mouseOnLabelRegister();
+
+        // Label recovery
+        mouseOnLabelRecovery();
 
         // Check connection
         if (!isConnection()) drawNoConnection();
@@ -157,7 +179,141 @@ public class AuthController extends Application {
 
         imageInfo.setImage(error ? imageError : imageInformation);
         labelInfo.setText(text);
+        paneInfo.setVisible(true);
 
+    }
+
+    /**
+     * A function to control typing for a text field.
+     */
+    @FXML
+    public void keyboardOnTextFieldEmail(){
+
+        textFieldEmail.setOnKeyPressed(event -> {
+            if(event.getCode() == KeyCode.ENTER) authorization();
+        });
+        textFieldEmail.textProperty().addListener((observableValue, oldValue, newValue) -> {
+            if(!newValue.isEmpty() && !newValue.matches("^[a-zA-Z\\d]+$") && !newValue.matches("^[-\\w.]+@([A-z\\d][-A-z\\d]+\\.)+[A-z]{2,4}$")){
+
+                textFieldEmail.setStyle("-fx-background-color: white; -fx-text-fill: black; -fx-border-color:red");
+                sendNotify("Неверный формат!", false);
+
+            } else {
+                textFieldEmail.setStyle("-fx-background-color: white; -fx-text-fill: black");
+                paneInfo.setVisible(false);
+            }
+        });
+
+    }
+
+    /**
+     * A function to control typing for a password field.
+     */
+    @FXML
+    public void keyboardOnPasswordField(){
+
+        passwordField.setOnKeyPressed(event -> {
+            if(event.getCode() == KeyCode.ENTER) authorization();
+        });
+        passwordField.textProperty().addListener((observableValue, oldValue, newValue) -> {
+            if(!newValue.matches("(?=^.{6,}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$")){
+                passwordField.setStyle("-fx-background-color: white; -fx-text-fill: black; -fx-border-color:red");
+                sendNotify("Неверный формат пароля!", false);
+
+            } else {
+                passwordField.setStyle("-fx-background-color: white; -fx-text-fill: black");
+                paneInfo.setVisible(false);
+            }
+        });
+
+    }
+
+    /**
+     * Function to track mouse events for the login button.
+     */
+    @FXML
+    public void mouseOnButtonAuth(){
+        buttonAuth.setOnMouseEntered(event -> buttonAuth.setStyle("-fx-background-color: gray"));
+        buttonAuth.setOnMouseExited(event -> buttonAuth.setStyle("-fx-background-color: white"));
+        buttonAuth.setOnMouseClicked(event -> authorization());
+    }
+
+    /**
+     * Function for authorization.
+     */
+    @FXML
+    public void authorization(){
+
+        String usernameOrEmail = textFieldEmail.getText();
+        String password = passwordField.getText();
+
+        if(!usernameOrEmail.matches("^[a-zA-Z\\d]+$") && !usernameOrEmail.matches("^[-\\w.]+@([A-z\\d][-A-z\\d]+\\.)+[A-z]{2,4}$")) {
+            textFieldEmail.setStyle("-fx-background-color: white; -fx-text-fill: black; -fx-border-color:red");
+            sendNotify("Неверный формат!", false);
+            return;
+        }
+
+        if(!password.matches("(?=^.{6,}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$")){
+            passwordField.setStyle("-fx-background-color: white; -fx-text-fill: black; -fx-border-color:red");
+            sendNotify("Неверный формат пароля!", false);
+            return;
+        }
+
+        if (!isConnection()) {
+            drawNoConnection();
+            return;
+        }
+
+        try (CloseableHttpClient client = HttpClients.createDefault()) {
+
+            SignInDTO sign = new SignInDTO(usernameOrEmail, password);
+            HttpPost request = new HttpPost(Config.url + Config.host + ":" + Config.port + "/api/auth/signing");
+            request.setHeader("content-type", "application/json");
+            request.setEntity(new StringEntity(new Gson().toJson(sign), "UTF-8"));
+
+            CloseableHttpResponse response = client.execute(request);
+            if (response.getStatusLine().getStatusCode() == 200) {
+                new MainController().start((Stage) buttonAuth.getScene().getWindow());
+            } else {
+                sendNotify("Неверный логин или пароль!", true);
+            }
+            response.close();
+
+        } catch (IOException e) {
+            sendNotify("Ошибка! Попробуйте позже", true);
+        }
+    }
+
+    /**
+     * Function to track mouse events for the register label.
+     */
+    @FXML
+    public void mouseOnLabelRegister(){
+        labelRegister.setOnMouseEntered(event -> labelRegister.setTextFill(Paint.valueOf("#215790")));
+        labelRegister.setOnMouseExited(event -> labelRegister.setTextFill(Paint.valueOf("#6198d3")));
+        labelRegister.setOnMouseClicked(event -> {
+            try {
+                new RegisterController().start((Stage) labelRegister.getScene().getWindow());
+            } catch (IOException e) {
+                sendNotify("Произошла ошибка!", true);
+            }
+        });
+    }
+
+    /**
+     * Function to track mouse events for the recovery label.
+     */
+    @FXML
+    public void mouseOnLabelRecovery(){
+        labelRecovery.setOnMouseEntered(event -> labelRecovery.setTextFill(Paint.valueOf("#215790")));
+        labelRecovery.setOnMouseExited(event -> labelRecovery.setTextFill(Paint.valueOf("#6198d3")));
+        labelRecovery.setOnMouseClicked(event -> {
+            try {
+                new RecoveryController().start((Stage) labelRecovery.getScene().getWindow());
+            } catch (IOException e) {
+                sendNotify("Произошла ошибка!", true);
+            }
+        });
     }
 
     /**
@@ -170,7 +326,6 @@ public class AuthController extends Application {
             socket.connect(new InetSocketAddress(Config.host, Config.port), 10);
             return true;
         } catch (IOException e) {
-
             drawNoConnection();
             return false;
         }
@@ -201,6 +356,18 @@ public class AuthController extends Application {
 
         public TaskTimer(){
             this.countdown = 30;
+
+            btnNoConnect.setOnMouseEntered(event -> btnNoConnect.setTextFill(Paint.valueOf("gray")));
+            btnNoConnect.setOnMouseExited(event -> btnNoConnect.setTextFill(Paint.valueOf("white")));
+
+            btnNoConnect.setOnMouseClicked(event -> {
+                this.countdown = 30;
+                if(isConnection()){
+                    groupNoConnect.setVisible(false);
+                    timerNoConnect.cancel();
+                    timerNoConnect = null;
+                }
+            });
         }
 
         @Override
@@ -217,7 +384,7 @@ public class AuthController extends Application {
                 this.countdown = 30;
             }
 
-            Platform.runLater(() -> labelNoConnect.setText(String.format("%0.2f:%0.2f", (this.countdown / 60), (this.countdown % 60))));
+            Platform.runLater(() -> labelNoConnect.setText(String.format("%02d:%02d", (this.countdown / 60), (this.countdown % 60))));
         }
 
     }

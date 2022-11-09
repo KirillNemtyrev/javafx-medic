@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.medic.controllers.RecoveryController">
+   <children>
+      <ImageView fitHeight="702.0" fitWidth="1051.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/background.jpg" />
+         </image>
+      </ImageView>
+      <Pane prefHeight="35.0" prefWidth="600.0" style="-fx-background-color: #41348a;">
+         <children>
+            <ImageView fx:id="imageClose" fitHeight="35.0" fitWidth="34.0" layoutX="566.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/close.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imageCollapse" fitHeight="35.0" fitWidth="34.0" layoutX="532.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/collapse.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="paneInfo" layoutX="150.0" layoutY="600.0" prefHeight="34.0" prefWidth="300.0" style="-fx-background-color: #41348a; -fx-background-radius: 10px;" visible="false">
+         <children>
+            <ImageView fx:id="imageInfo" fitHeight="32.0" fitWidth="32.0" layoutX="6.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../program/images/error.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="labelInfo" alignment="CENTER" layoutX="41.0" layoutY="4.0" prefHeight="25.0" prefWidth="244.0" text="Неверный логин или пароль!" textFill="WHITE">
+               <font>
+                  <Font name="Franklin Gothic Medium" size="17.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="paneMain" layoutX="138.0" layoutY="112.0" prefHeight="476.0" prefWidth="324.0" style="-fx-background-color: #41348a; -fx-background-radius: 25px;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Label layoutX="24.0" layoutY="14.0" text="Потеряшка, ну что ж" textFill="WHITE">
+               <font>
+                  <Font name="Franklin Gothic Medium" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="20.0" layoutY="50.0" prefHeight="22.0" prefWidth="284.0" text="Давайте вспоминать ваши данные" textAlignment="CENTER" textFill="#bfbfbf" wrapText="true">
+               <font>
+                  <Font name="Franklin Gothic Medium" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="textFieldEmail" focusTraversable="false" layoutX="20.0" layoutY="112.0" prefHeight="38.0" prefWidth="284.0" style="-fx-background-color: white;">
+               <font>
+                  <Font name="Franklin Gothic Medium" size="20.0" />
+               </font>
+            </TextField>
+            <Label layoutX="28.0" layoutY="93.0" text="Логин или E-mail адрес:" textFill="WHITE">
+               <font>
+                  <Font name="Franklin Gothic Medium" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelAuth" layoutX="156.0" layoutY="445.0" text="Авторизоваться" textFill="#6198d3">
+               <font>
+                  <Font name="Franklin Gothic Medium" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Label layoutX="59.0" layoutY="445.0" text="Я вспомнил!" textFill="WHITE">
+               <font>
+                  <Font name="Franklin Gothic Medium" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelSendCode" alignment="CENTER_RIGHT" layoutX="18.0" layoutY="150.0" prefHeight="19.0" prefWidth="276.0" text="Запросить код" textFill="#6198d3">
+               <font>
+                  <Font name="Franklin Gothic Medium" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Pane fx:id="paneWithCode" disable="true" layoutY="188.0" prefHeight="257.0" prefWidth="324.0">
+               <children>
+                  <TextField fx:id="textFieldCode1" focusTraversable="false" layoutX="23.0" layoutY="14.0" prefHeight="38.0" prefWidth="43.0" promptText="*" style="-fx-background-color: white;">
+                     <font>
+                        <Font name="Franklin Gothic Medium" size="20.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="textFieldCode2" focusTraversable="false" layoutX="69.0" layoutY="14.0" prefHeight="38.0" prefWidth="43.0" promptText="*" style="-fx-background-color: white;">
+                     <font>
+                        <Font name="Franklin Gothic Medium" size="20.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="textFieldCode3" focusTraversable="false" layoutX="116.0" layoutY="14.0" prefHeight="38.0" prefWidth="43.0" promptText="*" style="-fx-background-color: white;">
+                     <font>
+                        <Font name="Franklin Gothic Medium" size="20.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="textFieldCode4" focusTraversable="false" layoutX="162.0" layoutY="14.0" prefHeight="38.0" prefWidth="43.0" promptText="*" style="-fx-background-color: white;">
+                     <font>
+                        <Font name="Franklin Gothic Medium" size="20.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="textFieldCode5" focusTraversable="false" layoutX="209.0" layoutY="14.0" prefHeight="38.0" prefWidth="43.0" promptText="*" style="-fx-background-color: white;">
+                     <font>
+                        <Font name="Franklin Gothic Medium" size="20.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="textFieldCode6" focusTraversable="false" layoutX="256.0" layoutY="14.0" prefHeight="38.0" prefWidth="43.0" promptText="*" style="-fx-background-color: white;">
+                     <font>
+                        <Font name="Franklin Gothic Medium" size="20.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="25.0" layoutY="-9.0" text="Код с почты:" textFill="WHITE">
+                     <font>
+                        <Font name="Franklin Gothic Medium" size="17.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="passwordFieldNew" focusTraversable="false" layoutX="19.0" layoutY="77.0" prefHeight="38.0" prefWidth="284.0" style="-fx-background-color: white;">
+                     <font>
+                        <Font name="Franklin Gothic Medium" size="20.0" />
+                     </font>
+                  </PasswordField>
+                  <Label layoutX="25.0" layoutY="58.0" text="Новый пароль:" textFill="WHITE">
+                     <font>
+                        <Font name="Franklin Gothic Medium" size="17.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="passwordFieldConfirm" focusTraversable="false" layoutX="20.0" layoutY="166.0" prefHeight="38.0" prefWidth="284.0" style="-fx-background-color: white;">
+                     <font>
+                        <Font name="Franklin Gothic Medium" size="20.0" />
+                     </font>
+                  </PasswordField>
+                  <Label layoutX="25.0" layoutY="147.0" text="Подтвердите пароль:" textFill="WHITE">
+                     <font>
+                        <Font name="Franklin Gothic Medium" size="17.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="buttonRecovery" layoutX="20.0" layoutY="211.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="284.0" style="-fx-background-color: white;" text="Восстановить">
+                     <font>
+                        <Font name="Franklin Gothic Medium" size="20.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Label layoutX="17.0" layoutY="113.0" prefHeight="32.0" prefWidth="291.0" text="Пароль должен содержать английские символы, заглавную букву, от 6 до 40 символов, содержать цифры, различные символы." textAlignment="CENTER" textFill="#d0d0d0" wrapText="true">
+                     <font>
+                        <Font name="Franklin Gothic Medium" size="10.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelClearCode" alignment="CENTER_RIGHT" layoutX="112.0" layoutY="-9.0" prefHeight="19.0" prefWidth="71.0" text="Очистить" textFill="#6198d3">
+                     <font>
+                        <Font name="Franklin Gothic Medium" size="16.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+               </children>
+            </Pane>
+            <Label fx:id="labelChangeEmail" alignment="CENTER_RIGHT" layoutX="228.0" layoutY="93.0" prefHeight="19.0" prefWidth="71.0" text="Изменить" textFill="#6198d3" visible="false">
+               <font>
+                  <Font name="Franklin Gothic Medium" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="paneSuccessful" layoutX="138.0" layoutY="184.0" prefHeight="332.0" prefWidth="324.0" style="-fx-background-color: #41348a; -fx-background-radius: 25px;" visible="false">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Label layoutX="17.0" layoutY="14.0" text="Пароль восстановлен!" textFill="WHITE">
+               <font>
+                  <Font name="Franklin Gothic Medium" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="49.0" layoutY="50.0" prefHeight="22.0" prefWidth="226.0" text="Не забывайте свой пароль." textAlignment="CENTER" textFill="#c9c9c9" wrapText="true">
+               <font>
+                  <Font name="Franklin Gothic Medium" size="18.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="96.0" fitWidth="96.0" layoutX="114.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/changepassword.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="28.0" layoutY="197.0" prefHeight="79.0" prefWidth="268.0" text="Пароль был успешно изменён! Запишите где-нибудь свой пароль и больше не забывайте:)" textAlignment="CENTER" textFill="#c9c9c9" wrapText="true">
+               <font>
+                  <Font name="Franklin Gothic Medium" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="buttonAuth" layoutX="20.0" layoutY="276.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="284.0" style="-fx-background-color: white;" text="Авторизоваться">
+               <font>
+                  <Font name="Franklin Gothic Medium" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </Pane>
+      <Group fx:id="groupNoConnect" visible="false">
+         <children>
+            <Pane layoutY="35.0" opacity="0.5" prefHeight="668.0" prefWidth="600.0" style="-fx-background-color: black;" />
+            <Pane layoutX="178.0" layoutY="193.0" prefHeight="315.0" prefWidth="242.0" style="-fx-background-color: white;">
+               <children>
+                  <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="97.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../../../program/images/noconnect.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" layoutX="28.0" layoutY="2.0" prefHeight="14.0" prefWidth="187.0" text="Нет соединения.." textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Franklin Gothic Medium" size="21.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="28.0" layoutY="80.0" prefHeight="141.0" prefWidth="187.0" text="Проверьте пожалуйста ваше интернет соединение. Возможно сервер не отвечает. Автоматическая попытка подключения через:" textAlignment="CENTER" textFill="#5b5656" wrapText="true">
+                     <font>
+                        <Font name="Franklin Gothic Medium" size="17.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelNoConnect" alignment="CENTER" layoutX="104.0" layoutY="228.0" prefHeight="24.0" prefWidth="58.0" text="00:00" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Franklin Gothic Medium" size="21.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="72.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../../../program/images/clock.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="btnNoConnect" layoutX="50.0" layoutY="271.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="143.0" style="-fx-background-color: #41348a;" text="Проверить" textFill="WHITE">
+                     <font>
+                        <Font name="Franklin Gothic Medium Italic" size="17.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+         </children>
+      </Group>
+   </children>
+</Pane>

@@ -23,17 +23,17 @@
          <children>
             <ImageView fx:id="imageClose" fitHeight="35.0" fitWidth="34.0" layoutX="566.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../Projects/medic/src/main/resources/com/project/medic/images/close/close.png" />
+                  <Image url="@../images/close.png" />
                </image>
             </ImageView>
             <ImageView fx:id="imageCollapse" fitHeight="35.0" fitWidth="34.0" layoutX="532.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../Projects/medic/src/main/resources/com/project/medic/images/collapse/collapse.png" />
+                  <Image url="@../images/collapse.png" />
                </image>
             </ImageView>
          </children>
       </Pane>
-      <Pane fx:id="paneInfo" layoutX="150.0" layoutY="610.0" prefHeight="34.0" prefWidth="300.0" style="-fx-background-color: #41348a; -fx-background-radius: 10px;">
+      <Pane fx:id="paneInfo" layoutX="150.0" layoutY="610.0" prefHeight="34.0" prefWidth="300.0" style="-fx-background-color: #41348a; -fx-background-radius: 10px;" visible="false">
          <children>
             <ImageView fx:id="imageInfo" fitHeight="32.0" fitWidth="32.0" layoutX="6.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -47,45 +47,6 @@
             </Label>
          </children>
       </Pane>
-      <Group fx:id="groupNoConnect" visible="false">
-         <children>
-            <Pane layoutY="35.0" opacity="0.5" prefHeight="567.0" prefWidth="360.0" style="-fx-background-color: black;" />
-            <Pane layoutX="65.0" layoutY="150.0" prefHeight="315.0" prefWidth="242.0" style="-fx-background-color: white;">
-               <children>
-                  <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="97.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/noconnect.png" />
-                     </image>
-                  </ImageView>
-                  <Label alignment="CENTER" layoutX="28.0" layoutY="2.0" prefHeight="14.0" prefWidth="187.0" text="Нет соединения.." textAlignment="CENTER" wrapText="true">
-                     <font>
-                        <Font name="Franklin Gothic Medium" size="21.0" />
-                     </font>
-                  </Label>
-                  <Label alignment="CENTER" layoutX="28.0" layoutY="80.0" prefHeight="141.0" prefWidth="187.0" text="Проверьте пожалуйста ваше интернет соединение. Возможно сервер не отвечает. Автоматическая попытка подключения через:" textAlignment="CENTER" textFill="#5b5656" wrapText="true">
-                     <font>
-                        <Font name="Franklin Gothic Medium" size="17.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="labelNoConnect" alignment="CENTER" layoutX="104.0" layoutY="228.0" prefHeight="24.0" prefWidth="58.0" text="00:00" textAlignment="CENTER" wrapText="true">
-                     <font>
-                        <Font name="Franklin Gothic Medium" size="21.0" />
-                     </font>
-                  </Label>
-                  <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="72.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/clock.png" />
-                     </image>
-                  </ImageView>
-                  <Button fx:id="btnNoConnect" layoutX="50.0" layoutY="271.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="143.0" style="-fx-background-color: #41348a;" text="Проверить" textFill="WHITE">
-                     <font>
-                        <Font name="Franklin Gothic Medium Italic" size="17.0" />
-                     </font>
-                  </Button>
-               </children>
-            </Pane>
-         </children>
-      </Group>
       <Pane fx:id="paneMain" layoutX="138.0" layoutY="106.0" prefHeight="488.0" prefWidth="324.0" style="-fx-background-color: #41348a; -fx-background-radius: 25px;">
          <effect>
             <DropShadow />
@@ -150,7 +111,7 @@
                   <Font name="Franklin Gothic Medium" size="17.0" />
                </font>
             </Label>
-            <PasswordField fx:id="passwordFieldConfirm" focusTraversable="false" layoutX="20.0" layoutY="363.0" prefHeight="38.0" prefWidth="284.0" style="-fx-background-color: #08white0808;" />
+            <PasswordField fx:id="passwordFieldConfirm" focusTraversable="false" layoutX="20.0" layoutY="363.0" prefHeight="38.0" prefWidth="284.0" style="-fx-background-color: white;" />
             <Label layoutX="20.0" layoutY="295.0" prefHeight="48.0" prefWidth="284.0" text="Пароль должен содержать английские символы, заглавную букву, от 6 до 40 символов, содержать цифры, различные символы." textAlignment="CENTER" textFill="#bcbcbc" wrapText="true">
                <font>
                   <Font name="Franklin Gothic Medium" size="13.0" />
@@ -168,5 +129,89 @@
             </Label>
          </children>
       </Pane>
+      <Pane fx:id="paneSuccessful" layoutX="138.0" layoutY="171.0" prefHeight="359.0" prefWidth="324.0" style="-fx-background-color: #41348a; -fx-background-radius: 25px;" visible="false">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Label layoutX="39.0" layoutY="14.0" text="Теперь вы с нами)" textFill="WHITE">
+               <font>
+                  <Font name="Franklin Gothic Medium" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="28.0" layoutY="50.0" prefHeight="22.0" prefWidth="268.0" text="Надеемся вам здесь понравится" textAlignment="CENTER" textFill="#bfbfbf" wrapText="true">
+               <font>
+                  <Font name="Franklin Gothic Medium" size="18.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="96.0" fitWidth="96.0" layoutX="171.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true" rotate="31.6">
+               <image>
+                  <Image url="@../images/register_3.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="96.0" fitWidth="96.0" layoutX="59.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true" rotate="-50.2">
+               <image>
+                  <Image url="@../images/register_1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="96.0" fitWidth="96.0" layoutX="114.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/register_2.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="28.0" layoutY="197.0" prefHeight="96.0" prefWidth="268.0" text="Поздравляем с успешной регистрацией! Давайте авторизуемся и пойдём решать тестики)" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Franklin Gothic Medium" size="17.0" />
+               </font>
+            </Label>
+            <Button fx:id="buttonAuth" layoutX="20.0" layoutY="305.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="284.0" style="-fx-background-color: white;" text="Авторизоваться">
+               <font>
+                  <Font name="Franklin Gothic Medium" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </Pane>
+      <Group fx:id="groupNoConnect" visible="false">
+         <children>
+            <Pane layoutY="35.0" opacity="0.5" prefHeight="668.0" prefWidth="600.0" style="-fx-background-color: black;" />
+            <Pane layoutX="178.0" layoutY="193.0" prefHeight="315.0" prefWidth="242.0" style="-fx-background-color: white;">
+               <children>
+                  <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="97.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/noconnect.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" layoutX="28.0" layoutY="2.0" prefHeight="14.0" prefWidth="187.0" text="Нет соединения.." textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Franklin Gothic Medium" size="21.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="28.0" layoutY="80.0" prefHeight="141.0" prefWidth="187.0" text="Проверьте пожалуйста ваше интернет соединение. Возможно сервер не отвечает. Автоматическая попытка подключения через:" textAlignment="CENTER" textFill="#5b5656" wrapText="true">
+                     <font>
+                        <Font name="Franklin Gothic Medium" size="17.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelNoConnect" alignment="CENTER" layoutX="104.0" layoutY="228.0" prefHeight="24.0" prefWidth="58.0" text="00:00" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Franklin Gothic Medium" size="21.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="72.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/clock.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="btnNoConnect" layoutX="50.0" layoutY="271.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="143.0" style="-fx-background-color: #41348a;" text="Проверить" textFill="WHITE">
+                     <font>
+                        <Font name="Franklin Gothic Medium Italic" size="17.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+         </children>
+      </Group>
    </children>
 </Pane>

@@ -23,17 +23,17 @@
          <children>
             <ImageView fx:id="imageClose" fitHeight="35.0" fitWidth="34.0" layoutX="566.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../Projects/medic/src/main/resources/com/project/medic/images/close/close.png" />
+                  <Image url="@../images/close.png" />
                </image>
             </ImageView>
             <ImageView fx:id="imageCollapse" fitHeight="35.0" fitWidth="34.0" layoutX="532.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../Projects/medic/src/main/resources/com/project/medic/images/collapse/collapse.png" />
+                  <Image url="@../images/collapse.png" />
                </image>
             </ImageView>
          </children>
       </Pane>
-      <Pane fx:id="paneInfo" layoutX="150.0" layoutY="533.0" prefHeight="34.0" prefWidth="300.0" style="-fx-background-color: #41348a; -fx-background-radius: 10px;">
+      <Pane fx:id="paneInfo" layoutX="150.0" layoutY="533.0" prefHeight="34.0" prefWidth="300.0" style="-fx-background-color: #41348a; -fx-background-radius: 10px;" visible="false">
          <children>
             <ImageView fx:id="imageInfo" fitHeight="32.0" fitWidth="32.0" layoutX="6.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -120,8 +120,8 @@
       </Pane>
       <Group fx:id="groupNoConnect" visible="false">
          <children>
-            <Pane layoutY="35.0" opacity="0.5" prefHeight="567.0" prefWidth="460.0" style="-fx-background-color: black;" />
-            <Pane layoutX="107.0" layoutY="162.0" prefHeight="315.0" prefWidth="242.0" style="-fx-background-color: white;">
+            <Pane layoutY="35.0" opacity="0.5" prefHeight="668.0" prefWidth="600.0" style="-fx-background-color: black;" />
+            <Pane layoutX="178.0" layoutY="193.0" prefHeight="315.0" prefWidth="242.0" style="-fx-background-color: white;">
                <children>
                   <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="97.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>

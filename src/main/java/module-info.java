@@ -10,6 +10,19 @@ module com.project.medic {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
 
+    requires org.apache.httpcomponents.httpclient;
+    requires org.apache.httpcomponents.httpcore;
+    requires org.apache.httpcomponents.httpmime;
+    requires java.desktop;
+
+    requires com.google.gson;
+
+    opens com.project.medic.entity to com.google.gson;
+    opens com.project.medic.dto to com.google.gson;
+
+    opens com.project.medic.controllers to javafx.fxml;
+    exports com.project.medic.controllers;
+
     opens com.project.medic to javafx.fxml;
     exports com.project.medic;
 }
